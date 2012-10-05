@@ -1,4 +1,4 @@
-namespace SalesTax.Tests
+namespace SalesTax
 {
     public class BasketItem
     {

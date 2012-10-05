@@ -1,4 +1,6 @@
-namespace SalesTax.Tests
+
+
+namespace SalesTax
 {
     public class Receipt : IDisplay
     {

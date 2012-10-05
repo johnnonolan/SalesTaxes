@@ -4,3 +4,4 @@ obj
 _ReSharper.*
 *.ncrunchsolution
 *.ncrunchsolution.user
+_NCrunch*
