@@ -26,7 +26,7 @@ namespace SalesTax.Tests
             var shoppingBasket = new List<BasketItem> ();
             var checkout = new CheckOut(receipt);
             checkout.CalculateTotal(shoppingBasket);
-            Assert.That(receipt.Display(shoppingBasket), Is.EqualTo("1 book : 1.28 Sales Taxes: 0.00 Total: 1.28"));
+            Assert.That(receipt.Display(shoppingBasket), Is.EqualTo("Sales Taxes: 0.00 Total: 0.00"));
         }
 
      }

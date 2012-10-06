@@ -14,7 +14,7 @@ namespace SalesTax.Tests
             var shoppingBasket = new List<BasketItem>
                                      {
                                          new BasketItem {Product = "Book", Quantity = 1, Price = 12.49m},
-                                         new BasketItem {Product = "music CD", Quantity = 1, Price = 14.99m},
+                                         new BasketItem {Product = "music cd", Quantity = 1, Price = 14.99m},
                                          new BasketItem {Product = "chocolate bar", Quantity = 1, Price = 0.85m}
             
                                      };
@@ -25,7 +25,7 @@ namespace SalesTax.Tests
             var output = checkout.DisplayReceipt(); 
             Assert.That(output,
                         Is.EqualTo(
-                            "1 book : 12.49 1 music CD: 16.49 1 chocolate bar: 0.85 Sales Taxes: 1.50 Total: 29.83"));
+                            "1 book : 12.49 1 music cd: 16.49 1 chocolate bar: 0.85 Sales Taxes: 1.50 Total: 29.83"));
         }
 
        
