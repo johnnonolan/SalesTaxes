@@ -2,45 +2,48 @@
 {
     public class ItemFactory
     {
-        public Item CreateTaxExemptItem(string productName, decimal cost)
+        public IItem CreateTaxExemptItem(string productName, decimal cost, bool imported)
         {
             return new TaxExemptItem(productName, cost);
         }
 
-        public Item CreateTaxableItem(string productName, decimal cost)
+        public IItem CreateTaxableItem(string productName, decimal cost)
         {
             return new TaxableItem(productName, cost);
         }
     }
 
-    public class TaxableItem : Item
+    public class TaxableItem : IItem
     {
-        public TaxableItem(string productName, decimal cost)
-            : base(productName, cost * 1.1m)
-        {
-            Tax = cost * 0.1m;
-        }
-    }
+        public string ProductName { get; set; }
+        public decimal GrossPrice { get; set; }
+        public decimal Tax { get; set; }
 
-    public class TaxExemptItem : Item
-    {
-        public TaxExemptItem(string productName, decimal cost) : base(productName,cost)
-        {
-            
-        }
-    }
-
-    public abstract class Item
-    {
-        public string ProductName { get; private set; }
-        public decimal GrossPrice { get; private set; }
-        public decimal Tax { get; protected set; }
-
-        protected Item(string productName, decimal cost)
+        internal TaxableItem(string productName, decimal grossPrice)
         {
             ProductName = productName;
-            GrossPrice = cost;
-
+            GrossPrice = grossPrice * 1.1m;
+            Tax = grossPrice * 0.1m; //TODO: magic number
         }
+    }
+
+    public class TaxExemptItem : IItem
+    {
+        public string ProductName { get; set; }
+        public decimal GrossPrice { get; set; }
+        public decimal Tax { get; set; }
+        internal TaxExemptItem(string productName, decimal grossPrice)
+        {
+            ProductName = productName;
+            GrossPrice = grossPrice;
+            Tax = 0m;
+        }
+    }
+
+    public interface IItem
+    {
+        string ProductName { get; set; }
+        decimal GrossPrice { get; set; }
+        decimal Tax { get; set; }
     }
 }

@@ -4,7 +4,7 @@ namespace SalesTax
 {
     public class BasketItem : IProduct
     {
-        public Item Item { get; set; }
+        public IItem Item { get; set; }
 
         public int Quantity { get; set; }
 
