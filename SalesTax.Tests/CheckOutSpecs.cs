@@ -31,9 +31,7 @@ namespace SalesTax.Tests
         [Test]
         public void When_purchasing__taxable_item_it_should_add_tax()
         {
-            var receipt = new Receipt();
-            //TODO: this is to be fleshed out 
-            //receiptMock.Setup(x => x.Display(It.IsAny<CheckOut>())).Returns("1 book : 1.29 Sales Taxes: 0.00 Total: 0.00").Verifiable();               
+            var receipt = new Receipt();              
             var checkOut = new CheckOut(receipt);
             var itemFactory = new ItemFactory();
             var nonTaxableItem = new BasketItem { Item = itemFactory.CreateTaxExemptItem("Book", 1.29m, false), Quantity = 1 };
