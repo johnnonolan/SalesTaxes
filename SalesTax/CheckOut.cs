@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-
 namespace SalesTax
 {
     public class CheckOut
     {
         readonly IDisplay _display;
-        decimal _total; //primitive obsession?
+
         List<BasketItem> _shoppingBasket;
         public CheckOut(IDisplay display)
         {
@@ -16,9 +15,8 @@ namespace SalesTax
 
         public void CalculateTotal(List<BasketItem> shoppingBasket)
         {
-           //todo: complete me
+           //todo: commenting out of the sum shows that this isn't needed. calc total is not needed.
             _shoppingBasket = shoppingBasket;
-            _total = shoppingBasket.Sum(s => s.Price * s.Quantity);
         }
 
         public string DisplayReceipt()

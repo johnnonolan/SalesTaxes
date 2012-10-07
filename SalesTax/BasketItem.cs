@@ -1,11 +1,16 @@
+using System;
+
 namespace SalesTax
 {
-    public class BasketItem
+    public class BasketItem : IProduct
     {
-        public string Product { get; set; }
+        public Item Item { get; set; }
 
         public int Quantity { get; set; }
 
-        public decimal Price { get; set; }
+        public void AddTax()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -8,13 +8,13 @@ namespace SalesTax
     {
         public string Display(List<BasketItem> basket)
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             foreach (var basketItem in basket)
             {
-                sb.Append(string.Format("{0} {1} : {2} ", basketItem.Quantity,
-                                            basketItem.Product.ToLower(), basketItem.Price));
+                sb.Append(string.Format("{0} {1}: {2:0.00} ", basketItem.Quantity,
+                                            basketItem.Item.ProductName.ToLower(), basketItem.Item.GrossPrice));
             }
-            sb.Append(string.Format("Sales Taxes: 0.00 Total: {0:0.00}",basket.Sum(x => x.Price)));
+            sb.Append(string.Format("Sales Taxes: {0:0.00} Total: {1:0.00}",basket.Sum(x => x.Item.Tax), basket.Sum(x => x.Item.GrossPrice)));
             return sb.ToString();
         }
     }
