@@ -33,8 +33,6 @@ namespace SalesTax.Tests
         [Test]
         public void Satisfy_input_two()
         {
-            
-//Input 2: 1 imported box of chocolates at 10.00 1 imported bottle of perfume at 47.50
             var itemFactory = new ItemFactory();
             var shoppingBasket = new List<BasketItem>
                                      {
@@ -45,7 +43,7 @@ namespace SalesTax.Tests
                                              },
                                          new BasketItem
                                              {
-                                                 Item = itemFactory.CreateTaxableItem("imported bottle of perfume", 47.50m),
+                                                 Item = itemFactory.ImportTaxableItem("imported bottle of perfume", 47.50m),
                                                  Quantity = 1
                                              }
                                      };
