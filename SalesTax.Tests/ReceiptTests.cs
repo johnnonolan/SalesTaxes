@@ -13,7 +13,7 @@ namespace SalesTax.Tests
         {
             var receipt = new Receipt();
             var itemFactory = new ItemFactory();
-            var shoppingBasket = new List<BasketItem> { new BasketItem { Item = itemFactory.CreateTaxExemptItem("Book", 1.28m, false), Quantity = 1 }, new BasketItem { Item = itemFactory.CreateTaxExemptItem("Medicine", 3.57m, false), Quantity = 1 } };
+            var shoppingBasket = new List<BasketItem> { new BasketItem { Item = itemFactory.CreateTaxExemptItem("Book", 1.28m), Quantity = 1 }, new BasketItem { Item = itemFactory.CreateTaxExemptItem("Medicine", 3.57m), Quantity = 1 } };
             var checkout = new CheckOut(receipt);
             checkout.CalculateTotal(shoppingBasket);
             Assert.That(receipt.Display(shoppingBasket), Is.EqualTo("1 book: 1.28 1 medicine: 3.57 Sales Taxes: 0.00 Total: 4.85")); 
@@ -24,7 +24,7 @@ namespace SalesTax.Tests
         {
             var receipt = new Receipt();
             var itemFactory = new ItemFactory();
-            var shoppingBasket = new List<BasketItem> {new BasketItem {Item = itemFactory.CreateTaxExemptItem("Book", 1.28m, false), Quantity = 1}};
+            var shoppingBasket = new List<BasketItem> {new BasketItem {Item = itemFactory.CreateTaxExemptItem("Book", 1.28m), Quantity = 1}};
             var checkout = new CheckOut(receipt);
             checkout.CalculateTotal(shoppingBasket);
             Assert.That(receipt.Display(shoppingBasket), Is.EqualTo("1 book: 1.28 Sales Taxes: 0.00 Total: 1.28"));

@@ -16,9 +16,9 @@ namespace SalesTax.Tests
             var itemFactory = new ItemFactory();
             var shoppingBasket = new List<BasketItem>
                                      {
-                                         new BasketItem {Item= itemFactory.CreateTaxExemptItem("Book",12.49m, false),Quantity= 1},
+                                         new BasketItem {Item= itemFactory.CreateTaxExemptItem("Book",12.49m),Quantity= 1},
                                          new BasketItem {Item= itemFactory.CreateTaxableItem("music cd",14.99m),Quantity= 1},
-                                         new BasketItem {Item= itemFactory.CreateTaxExemptItem("chocolate bar",0.85m, false),Quantity= 1}
+                                         new BasketItem {Item= itemFactory.CreateTaxExemptItem("chocolate bar",0.85m),Quantity= 1}
                                      };
             var display = new Receipt();
             var checkout = new CheckOut(display);
@@ -40,7 +40,7 @@ namespace SalesTax.Tests
                                      {
                                          new BasketItem
                                              {
-                                                 Item = itemFactory.CreateTaxExemptItem("imported box of chocolates", 10.00m, true),
+                                                 Item = itemFactory.CreateTaxExemptItem("imported box of chocolates", 10.00m),
                                                  Quantity = 1
                                              },
                                          new BasketItem

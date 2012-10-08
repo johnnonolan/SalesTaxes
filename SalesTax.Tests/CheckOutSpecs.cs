@@ -23,7 +23,7 @@ namespace SalesTax.Tests
             var receipt = new Receipt();
             var checkOut = new CheckOut(receipt);
             var itemFactory = new ItemFactory();
-            var nonTaxableItem = new BasketItem { Item = itemFactory.CreateTaxExemptItem("Book", 1.29m, false), Quantity = 1 };
+            var nonTaxableItem = new BasketItem { Item = itemFactory.CreateTaxExemptItem("Book", 1.29m), Quantity = 1 };
             checkOut.CalculateTotal(new List<BasketItem> { nonTaxableItem });
             Assert.That(checkOut.DisplayReceipt(), Is.EqualTo("1 book: 1.29 Sales Taxes: 0.00 Total: 1.29"));
         }
@@ -34,7 +34,7 @@ namespace SalesTax.Tests
             var receipt = new Receipt();              
             var checkOut = new CheckOut(receipt);
             var itemFactory = new ItemFactory();
-            var nonTaxableItem = new BasketItem { Item = itemFactory.CreateTaxExemptItem("Book", 1.29m, false), Quantity = 1 };
+            var nonTaxableItem = new BasketItem { Item = itemFactory.CreateTaxExemptItem("Book", 1.29m), Quantity = 1 };
             checkOut.CalculateTotal(new List<BasketItem> { nonTaxableItem });
             Assert.That(checkOut.DisplayReceipt(), Is.EqualTo("1 book: 1.29 Sales Taxes: 0.00 Total: 1.29"));
         }
