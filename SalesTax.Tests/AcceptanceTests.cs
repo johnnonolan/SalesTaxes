@@ -57,6 +57,45 @@ namespace SalesTax.Tests
                             "1 imported box of chocolates: 10.50 1 imported bottle of perfume: 54.65 Sales Taxes: 7.65 Total: 65.15"));
         }
        
+        [Test]
+        public void Satisfy_input_3()
+        {
+            var itemFactory = new ItemFactory();
+            var shoppingBasket = new List<BasketItem>
+                                     {
+                                         new BasketItem
+                                             {
+                                                 Item = itemFactory.ImportTaxableItem("imported bottle of perfume", 27.99m),
+                                                 Quantity = 1
+                                             },
+                                             new BasketItem
+                                             {
+                                                 Item = itemFactory.CreateTaxableItem("bottle of perfume", 18.99m),
+                                                 Quantity = 1
+                                             },
+
+                                             new BasketItem
+                                             {
+                                                 Item = itemFactory.CreateTaxExemptItem("packet of headache pills", 9.75m),
+                                                 Quantity = 1
+                                             },
+                                                                                          new BasketItem
+                                             {
+                                                 Item = itemFactory.ImportTaxExemptItem("imported box of chocolates", 11.25m),
+                                                 Quantity = 1
+                                             }
+
+
+                                     };
+            var display = new Receipt();
+            var checkout = new CheckOut(display);
+            checkout.CalculateTotal(shoppingBasket);
+
+            var output = checkout.DisplayReceipt();
+            Assert.That(output,
+                        Is.EqualTo(
+                            "1 imported bottle of perfume: 32.19 1 bottle of perfume: 20.89 1 packet of headache pills: 9.75 1 imported box of chocolates: 11.85 Sales Taxes: 6.70 Total: 74.68"));
+        }
 
     }
 }
