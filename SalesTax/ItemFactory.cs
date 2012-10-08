@@ -17,6 +17,10 @@
             return new ImportedItem(new TaxExemptItem(productName, cost));
         }
 
+        public IItem ImportTaxableItem(string productName, decimal cost)
+        {
+            return new ImportedItem(new TaxableItem(productName, cost));
+        }
 
     }
 }

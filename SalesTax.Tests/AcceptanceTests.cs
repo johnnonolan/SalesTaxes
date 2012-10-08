@@ -40,7 +40,7 @@ namespace SalesTax.Tests
                                      {
                                          new BasketItem
                                              {
-                                                 Item = itemFactory.CreateTaxExemptItem("imported box of chocolates", 10.00m),
+                                                 Item = itemFactory.ImportTaxExemptItem("imported box of chocolates", 10.00m),
                                                  Quantity = 1
                                              },
                                          new BasketItem

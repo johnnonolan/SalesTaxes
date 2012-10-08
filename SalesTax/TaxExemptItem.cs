@@ -5,12 +5,12 @@ namespace SalesTax
     public class TaxExemptItem : IItem
     {
         public string ProductName { get; set; }
-        public decimal GrossPrice { get; set; }
+        public decimal NetPrice { get; set; }
         public decimal Tax { get; set; }
-        internal TaxExemptItem(string productName, decimal grossPrice)
+        internal TaxExemptItem(string productName, decimal netPrice)
         {
             ProductName = productName;
-            GrossPrice = grossPrice;
+            NetPrice = netPrice;
             Tax = 0m;
         }
     }
@@ -32,16 +32,16 @@ namespace SalesTax
             set { _item.ProductName = value; }
         }
 
-        public decimal GrossPrice
+        public decimal NetPrice
         {
-            get { return _item.GrossPrice; }
-            set { _item.GrossPrice = value; }
+            get { return _item.NetPrice; }
+            set { _item.NetPrice = value; }
         }
 
         
         public decimal Tax
         {
-            get { return _item.Tax; }
+            get { return _item.Tax+_item.NetPrice * 0.05m; }
             set { _item.Tax = value; }
         }
     }
