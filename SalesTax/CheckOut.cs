@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace SalesTax
 {
@@ -7,16 +6,15 @@ namespace SalesTax
     {
         readonly IDisplay _display;
 
-        List<BasketItem> _shoppingBasket;
+        readonly List<BasketItem> _shoppingBasket = new List<BasketItem>();
         public CheckOut(IDisplay display)
         {
             _display = display;            
         }
 
-        public void CalculateTotal(List<BasketItem> shoppingBasket)
+        public void ScanItem(IItem item, int quantity)
         {
-           //todo: commenting out of the sum shows that this isn't needed. calc total is not needed.
-            _shoppingBasket = shoppingBasket;
+            _shoppingBasket.Add(new BasketItem {Item = item, Quantity = quantity});
         }
 
         public string DisplayReceipt()

@@ -1,1 +1,0 @@
-﻿An item has a price which can be decorated by a sales tax and by an import tax.
