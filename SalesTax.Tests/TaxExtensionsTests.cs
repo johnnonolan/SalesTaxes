@@ -33,7 +33,6 @@ namespace SalesTax.Tests
             Assert.That(amount.TaxRound(), Is.EqualTo(1.10m));
         }
 
-
         [Test]
         public void zero_point_725_should_round_to_zero_point_75()
         {

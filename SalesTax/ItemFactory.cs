@@ -21,6 +21,5 @@
         {
             return new ImportedItem(new TaxableItem(productName, cost));
         }
-
     }
 }

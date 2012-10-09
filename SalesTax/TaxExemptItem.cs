@@ -4,9 +4,9 @@ namespace SalesTax
 {
     public class TaxExemptItem : IItem
     {
-        public string ProductName { get; set; }
-        public decimal NetPrice { get; set; }
-        public decimal Tax { get; set; }
+        public string ProductName { get; private set; }
+        public decimal NetPrice { get; private set; }
+        public decimal Tax { get; private set; }
         internal TaxExemptItem(string productName, decimal netPrice)
         {
             ProductName = productName;
@@ -29,13 +29,11 @@ namespace SalesTax
         public string ProductName
         {
             get { return _item.ProductName; }
-            set { _item.ProductName = value; }
         }
 
         public decimal NetPrice
         {
-            get { return _item.NetPrice; }
-            set { _item.NetPrice = value; }
+            get { return _item.NetPrice; }          
         }
 
         
@@ -43,10 +41,9 @@ namespace SalesTax
         {
             get
             {
-                decimal preRounding = (_item.Tax+_item.NetPrice * 0.05m);
+                var preRounding = (_item.Tax+_item.NetPrice * 0.05m);
                 return preRounding.TaxRound();
             }
-            set { _item.Tax = value; }
         }
 
     }

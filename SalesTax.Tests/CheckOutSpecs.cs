@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace SalesTax.Tests
 {
@@ -13,7 +12,7 @@ namespace SalesTax.Tests
         [SetUp]
         public void SetUp()
         {
-             _receipt = new Receipt();
+            _receipt = new Receipt();
             _checkOut = new CheckOut(_receipt);
             _itemFactory = new ItemFactory();
         }

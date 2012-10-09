@@ -2,10 +2,10 @@ namespace SalesTax
 {
     public interface IItem
     {
-        string ProductName { get; set; }
+        string ProductName { get; }
 
-        decimal NetPrice { get; set; }
+        decimal NetPrice { get; }
 
-        decimal Tax { get; set; }
+        decimal Tax { get; }
     }
 }

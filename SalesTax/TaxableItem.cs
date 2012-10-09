@@ -2,9 +2,9 @@ namespace SalesTax
 {
     public class TaxableItem : IItem
     {
-        public string ProductName { get; set; }
-        public decimal NetPrice { get; set; }
-        public decimal Tax { get; set; }
+        public string ProductName { get; private set; }
+        public decimal NetPrice { get; private set; }
+        public decimal Tax { get; private set; }
 
         internal TaxableItem(string productName, decimal netPrice)
         {

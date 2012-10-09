@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace SalesTax.Tests
 {
@@ -21,8 +20,6 @@ namespace SalesTax.Tests
         [Test]
         public void Satisfy_input_one()
         {
-            //Input 1: 1 book at 12.49 1 music CD at 14.99 1 chocolate bar at 0.85
-            //  Output 1: 1 book : 12.49 1 music CD: 16.49 1 chocolate bar: 0.85 Sales Taxes: 1.50 Total: 29.83
             //NOTE: this output has an inconsistency. The space after '1 book' is inconsistent with the rest of the outputs
             _checkout.ScanItem(_itemFactory.CreateTaxExemptItem("Book", 12.49m), 1);
             _checkout.ScanItem(_itemFactory.CreateTaxableItem("music cd", 14.99m), 1);
@@ -46,7 +43,7 @@ namespace SalesTax.Tests
         }
        
         [Test]
-        public void Satisfy_input_3()
+        public void Satisfy_input_three()
         {
             _checkout.ScanItem(_itemFactory.ImportTaxableItem("imported bottle of perfume", 27.99m), 1);
             _checkout.ScanItem(_itemFactory.CreateTaxableItem("bottle of perfume", 18.99m), 1);
