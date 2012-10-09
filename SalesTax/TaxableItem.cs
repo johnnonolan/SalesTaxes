@@ -10,7 +10,8 @@ namespace SalesTax
         {
             ProductName = productName;
             NetPrice = netPrice;
-            Tax = netPrice * 0.1m; //TODO: magic number
+            const decimal salesTax = 0.1m;
+            Tax = netPrice * salesTax;
         }
     }
 }

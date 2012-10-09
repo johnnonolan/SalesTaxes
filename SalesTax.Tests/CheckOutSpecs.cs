@@ -6,7 +6,7 @@ namespace SalesTax.Tests
     [TestFixture]
     public class CheckOutSpecs
     {
-        Receipt _receipt ;
+        Receipt _receipt;
         CheckOut _checkOut;
         ItemFactory _itemFactory;
 
