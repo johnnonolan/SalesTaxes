@@ -3,7 +3,7 @@
 namespace SalesTax.Tests
 {
     [TestFixture]
-    public  class TaxExtensionsTests
+    public  class SalesTaxExtensionsTests
     {
         [Test]
         public void One_should_round_to_one()

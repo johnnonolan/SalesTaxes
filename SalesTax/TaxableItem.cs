@@ -8,9 +8,9 @@ namespace SalesTax
 
         internal TaxableItem(string productName, decimal netPrice)
         {
+            const decimal salesTax = 0.1m;
             ProductName = productName;
             NetPrice = netPrice;
-            const decimal salesTax = 0.1m;
             Tax = netPrice * salesTax;
         }
     }

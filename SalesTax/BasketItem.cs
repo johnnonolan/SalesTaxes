@@ -11,5 +11,11 @@ namespace SalesTax
             Item = item;
             Quantity = quantity;
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} {1}: {2:0.00} ", Quantity,
+                                 Item.ProductName.ToLower(), Item.NetPrice + Item.Tax);
+        }
     }
 }
